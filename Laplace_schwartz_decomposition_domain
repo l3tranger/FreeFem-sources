@@ -1,0 +1,19 @@
+real r =.1;
+int n = 40;
+// bordure pour le rectangle horizontal
+border a(t = -1.5, 1.5) {x = t; y = -0.5; label = 1;}
+border b(t = -0.5, 0.5) {x = 1.5 ; y = t; label = 2;}
+border c(t = 1.5, -1.5) {x = t; y = 0.5; label = 3;}
+border d(t = 0.5, -0.5) {x = -1.5; y = t; label = 4;}
+// bordure pour le rectangle vertical 
+border f(t= -0.5, 0.5) {x = t; y = -3; label = 6;}
+border i(t= -3, 0.5) {x=0.5 ; y = t ; label = 7;}
+border j(t=0.5, -0.5) {x=t ; y=0.5; label = 8;}
+border k(t=0.5, -3) {x= -0.5; y=t; label = 9 ;}
+//plot(f(n) + i(n)+j(n) + k(n));
+// plot(a(n) + b(n) + c(n) + d(n) + f(n) + i(n) + j(n) + k(n));
+
+mesh Th = buildmesh(a(n) + b(n) + c(n) + d(n));
+mesh Th2 = buildmesh (f(n) + i(n) +j(n) + k(n)); 
+plot(Th, Th2, wait = 1, value = 1); 
+
